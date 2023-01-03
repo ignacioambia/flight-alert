@@ -1,6 +1,7 @@
 const { mongoose } = require("mongoose");
-const cron = require("node-cron");
 const express = require("express");
+const tracker = require("./utils/tracker");
+
 require("dotenv").config();
 
 const app = express();
@@ -18,15 +19,11 @@ mongoose
     `mongodb+srv://${DB_USER}:${DB_PWD}@cluster0.uceoffi.mongodb.net/dev?retryWrites=true&w=majority`
   )
   .then(() => {
-    console.log("connected successfully");
+    tracker();
   })
   .catch((e) => {
     console.log("Error: ", e);
   });
-
-cron.schedule("5 * * * * *", () => {
-  console.log("Hola mundo");
-});
 
 const port = PORT || 3000;
 app.listen(port, () => {
