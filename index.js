@@ -25,6 +25,11 @@ mongoose
     console.log("Error: ", e);
   });
 
+
+app.get('/', (req, res)=>{
+  res.send('Flight alert running');
+})
+
 const port = PORT || 3000;
 app.listen(port, () => {
   console.log("project running");
