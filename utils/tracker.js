@@ -1,7 +1,7 @@
 const cron = require("node-cron");
 const RouteTracker = require("../schemas/RouteTracker");
 
-cron.schedule("17 * * * *", async () => {
+cron.schedule("5 * * * * *", async () => {
   await new RouteTracker({}).save();
 });
 
