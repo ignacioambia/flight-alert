@@ -32,5 +32,5 @@ app.get('/', (req, res)=>{
 
 const port = PORT || 3000;
 app.listen(port, () => {
-  console.log("project running on port", port);
+  console.log("project running on port", port, DB_USER);
 });
