@@ -9,21 +9,21 @@ const app = express();
 //routes
 const routeTracker = require("./routes/routeTracker.route");
 
-app.use(express.json());
-app.use("/route-tracker", routeTracker);
+// app.use(express.json());
+// app.use("/route-tracker", routeTracker);
 
 const { DB_USER, DB_PWD, PORT } = process.env;
 
-mongoose
-  .connect(
-    `mongodb+srv://${DB_USER}:${DB_PWD}@cluster0.uceoffi.mongodb.net/dev?retryWrites=true&w=majority`
-  )
-  .then(() => {
-    tracker();
-  })
-  .catch((e) => {
-    console.log("Error: ", e);
-  });
+// mongoose
+//   .connect(
+//     `mongodb+srv://${DB_USER}:${DB_PWD}@cluster0.uceoffi.mongodb.net/dev?retryWrites=true&w=majority`
+//   )
+//   .then(() => {
+//     tracker();
+//   })
+//   .catch((e) => {
+//     console.log("Error: ", e);
+//   });
 
 
 app.get('/', (req, res)=>{
@@ -32,5 +32,5 @@ app.get('/', (req, res)=>{
 
 const port = PORT || 3000;
 app.listen(port, () => {
-  console.log("project running");
+  console.log("project running on port", port);
 });
