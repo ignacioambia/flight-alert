@@ -9,8 +9,8 @@ const app = express();
 //routes
 const routeTracker = require("./routes/routeTracker.route");
 
-// app.use(express.json());
-// app.use("/route-tracker", routeTracker);
+app.use(express.json());
+app.use("/route-tracker", routeTracker);
 
 const { DB_USER, DB_PWD, PORT } = process.env;
 

@@ -13,4 +13,9 @@ route.post("/", async (req, res) => {
   res.send(routeTracker);
 });
 
+route.delete("/", async (req, res) => {
+  await RouteTracker.deleteMany({});
+  res.send("Route tracking list is cleared now");
+});
+
 module.exports = route;
